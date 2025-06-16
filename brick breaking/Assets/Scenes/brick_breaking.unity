@@ -803,7 +803,7 @@ MonoBehaviour:
     isBonus: 0
   - color: {r: 1, g: 0.031372547, b: 0.91940975, a: 1}
     points: 0
-    spawnChance: 15
+    spawnChance: 10
     isBonus: 1
   niveau: 0
 --- !u!114 &528472983
