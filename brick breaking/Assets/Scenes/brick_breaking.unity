@@ -792,15 +792,15 @@ MonoBehaviour:
   - color: {r: 0, g: 0.23503351, b: 1, a: 1}
     points: 1
     spawnChance: 50
-    isBonus: 1
+    isBonus: 0
   - color: {r: 1, g: 0.033018887, b: 0.033018887, a: 1}
     points: 5
     spawnChance: 20
-    isBonus: 1
+    isBonus: 0
   - color: {r: 0.20471497, g: 1, b: 0.031372547, a: 1}
     points: 10
     spawnChance: 15
-    isBonus: 1
+    isBonus: 0
   - color: {r: 1, g: 0.031372547, b: 0.91940975, a: 1}
     points: 0
     spawnChance: 15
