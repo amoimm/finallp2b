@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Bonus")]
     public GameObject bonusPrefab;
-    public GameObject paddleObject;
-    public GameObject[] powerUpPrefabs;
+    [SerializeField] private GameObject giantPaddle;
+    private float enlargeDuration = 5f;
     public List<BrickType> brickTypes = new List<BrickType>();
 
     private AudioSource audioSource;
@@ -204,37 +204,49 @@ public class GameManager : MonoBehaviour
 
     public void EnlargePaddle()
     {
-        Debug.Log("Enlarge Paddle");
-        Paddle paddleScript = paddleObject.GetComponent<Paddle>();
+        if (enlargeCoroutine != null)
+        {
+            StopCoroutine(enlargeCoroutine);
+        }
 
-        if (paddleScript != null)
-        {
-            paddleScript.Enlarge();
-        }
-        else
-        {
-            Debug.LogWarning("Paddle script not found on paddleObject.");
-        }
+        giantPaddle.SetActive(true);
+        enlargeCoroutine = StartCoroutine(EnlargeTimer());
+    }
+
+    private IEnumerator EnlargeTimer()
+    {
+        yield return new WaitForSeconds(enlargeDuration);
+        giantPaddle.SetActive(false);
+        enlargeCoroutine = null;
     }
 
     public void SpawnMultiball()
     {
 
-    Vector3 spawnPosition = new Vector3(0f, 0f, 0f); // milieu de la map
-    for (int i = 0; i < 3; i++)
-    {
-        GameObject newBall = Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
-        Ball ballScript = newBall.GetComponent<Ball>();
-
-        if (ballScript != null)
+        Vector3 spawnPosition = new Vector3(0f, 0f, 0f); // milieu de la map
+        for (int i = 0; i < 3; i++)
         {
-            ballScript.paddle = paddleTransform; // pour qu'elle suive le paddle avant le lancement
-            ballScript.ResetToFollowPaddle(); // réinitialiser son état
-            
+            GameObject newBall = Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
+            Ball ballScript = newBall.GetComponent<Ball>();
+
+            if (ballScript != null)
+            {
+                ballScript.paddle = paddleTransform; // pour qu'elle suive le paddle avant le lancement
+                ballScript.ResetToFollowPaddle(); // réinitialiser son état
+                StartCoroutine(AutoLaunchAfterDelay(ballScript, 2f));
+            }
+            RegisterBall();
         }
-        RegisterBall();
     }
-}
+
+    private IEnumerator AutoLaunchAfterDelay(Ball ballScript, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (!ballScript.IsLaunched) // tu dois exposer launched en lecture
+        {
+            ballScript.ForceLaunch();
+        }
+    }
 
 
     public void RegisterBall()

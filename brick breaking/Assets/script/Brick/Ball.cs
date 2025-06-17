@@ -6,7 +6,8 @@ public class Ball : MonoBehaviour
     public Transform paddle;
     private Rigidbody2D rb;
     private bool launched = false;
-    public float baseSpeed;
+    private float baseSpeed =9f;
+    private float minSpeed = 9f;
 
     void Start()
     {
@@ -16,6 +17,16 @@ public class Ball : MonoBehaviour
         if (paddle == null && GameManager.Instance != null)
         {
             paddle = GameManager.Instance.paddleTransform;
+        }
+    }
+    
+    public bool IsLaunched => launched;
+    
+    public void ForceLaunch()
+    {
+        if (!launched)
+        {
+            Launch();
         }
     }
 
@@ -82,7 +93,9 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = ClampDirection(rb.linearVelocity) * rb.linearVelocity.magnitude;
+            Vector2 newDir = ClampDirection(rb.linearVelocity.normalized);
+            float newSpeed = Mathf.Max(rb.linearVelocity.magnitude, minSpeed);
+            rb.linearVelocity = newDir * newSpeed;
         }
     }
     private Vector2 ClampDirection(Vector2 direction)
