@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum PowerUpType { EnlargePaddle, Multiball, ExtraLife }
 
@@ -15,6 +17,7 @@ public class PowerUp : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +27,13 @@ public class PowerUp : MonoBehaviour
             Destroy(gameObject);
             ApplyPowerUp();
         }
+        else if (collision.gameObject.CompareTag("DeadZone"))
+        {
+            Destroy(gameObject);
+        }   
     }
+
+    
 
     private void AssignRandomType()
     {

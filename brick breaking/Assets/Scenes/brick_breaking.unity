@@ -549,7 +549,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.6836, y: 0.0694, z: 1}
-  m_LocalScale: {x: 1.9827414, y: 2.1010325, z: 1}
+  m_LocalScale: {x: 2.2057996, y: 3.1778119, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -790,15 +790,15 @@ MonoBehaviour:
   - color: {r: 0, g: 0.23503351, b: 1, a: 1}
     points: 1
     spawnChance: 50
-    isBonus: 1
+    isBonus: 0
   - color: {r: 1, g: 0.033018887, b: 0.033018887, a: 1}
     points: 5
     spawnChance: 20
-    isBonus: 1
+    isBonus: 0
   - color: {r: 0.20471497, g: 1, b: 0.031372547, a: 1}
     points: 10
     spawnChance: 15
-    isBonus: 1
+    isBonus: 0
   - color: {r: 1, g: 0.031372547, b: 0.91940975, a: 1}
     points: 0
     spawnChance: 10
@@ -1343,7 +1343,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2933, y: -0.062, z: 1}
-  m_LocalScale: {x: 44.679924, y: 33.659763, z: 3.2590125}
+  m_LocalScale: {x: 44.679924, y: 37.446484, z: 3.2590125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1990,7 +1990,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.9676, y: -0.009, z: 1}
-  m_LocalScale: {x: 1.7661439, y: 2.0903738, z: 0.97348}
+  m_LocalScale: {x: 1.8765279, y: 3.0049124, z: 0.97348}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2683,7 +2683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1637539413
 MonoBehaviour:
   m_ObjectHideFlags: 0
