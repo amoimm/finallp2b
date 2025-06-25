@@ -20,7 +20,9 @@ public class GameManagerSpace : MonoBehaviour
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private GameObject enemyBulletPrefab;
     [SerializeField] private GameObject enemyBulletPrefab2;
+    [SerializeField] private GameObject enemyBulletPrefab3;
 
+    
     private void Start()
     {
         spriteRenderer = targetObject.GetComponent<SpriteRenderer>();
@@ -70,6 +72,11 @@ public class GameManagerSpace : MonoBehaviour
     public void FireEnemyBullets2(Transform firePoint)
     {
         SpawnBullet(enemyBulletPrefab2, firePoint.position + new Vector3(0, 0, 0), new Vector2(-1f, 0f));
+    }
+    
+    public void FireEnemyBullets3(Transform firePoint)
+    {
+        SpawnBullet(enemyBulletPrefab3, firePoint.position , new Vector2(0f, 0f));
     }
 
     private void SpawnBullet(GameObject prefab, Vector3 position, Vector2 direction)

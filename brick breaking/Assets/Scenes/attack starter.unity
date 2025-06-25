@@ -1086,6 +1086,7 @@ MonoBehaviour:
   playerBulletPrefab: {fileID: 552785952883213729, guid: 9a1272f4480d9034db09f9a550e324d9, type: 3}
   enemyBulletPrefab: {fileID: 643932743004026965, guid: 75ee20d791eafeb44bd9b112cb9d682c, type: 3}
   enemyBulletPrefab2: {fileID: 3670417763300607701, guid: 77afb24dd2ffd0246ad4a31cc8aa2f13, type: 3}
+  enemyBulletPrefab3: {fileID: 3560286480323880561, guid: 9b454289e18459441bd24b097112d5b0, type: 3}
 --- !u!4 &725115218
 Transform:
   m_ObjectHideFlags: 0
@@ -2025,7 +2026,7 @@ Transform:
   m_GameObject: {fileID: 1658958617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -0.81, z: -2}
+  m_LocalPosition: {x: 6.38, y: -0.78, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
