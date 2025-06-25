@@ -12,6 +12,7 @@ public class GameManagerSpace : MonoBehaviour
     [Header("Projectile")]
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private GameObject enemyBulletPrefab;
+    [SerializeField] private GameObject enemyBulletPrefab2;
 
     void Awake()
     {
@@ -56,10 +57,15 @@ public class GameManagerSpace : MonoBehaviour
 
     }
 
-    public void FireEnemyBullets(Transform firePoint)
+    public void FireEnemyBullets1(Transform firePoint)
     {
         SpawnBullet(enemyBulletPrefab, firePoint.position + new Vector3(0, 0.5f, 0), new Vector2(-1f, 0.3f));
         SpawnBullet(enemyBulletPrefab, firePoint.position + new Vector3(0, -0.5f, 0), new Vector2(-1f, -0.3f));
+    }
+    
+    public void FireEnemyBullets2(Transform firePoint)
+    {
+        SpawnBullet(enemyBulletPrefab2, firePoint.position + new Vector3(0, 0, 0), new Vector2(-1f, 0f));
     }
 
     private void SpawnBullet(GameObject prefab, Vector3 position, Vector2 direction)

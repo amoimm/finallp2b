@@ -17,5 +17,9 @@ public class EnemyShoot1:MonoBehaviour
               Instantiate(impactEffectPrefab, transform.position + new Vector3(1.2f, 0f, 0f), Quaternion.identity);
               Destroy(other.gameObject);       // Détruit l ennemi
           }
+          else
+          {
+              Destroy(gameObject);
+          }
       }
 }
