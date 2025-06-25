@@ -30,14 +30,16 @@ public class EnemyShoot2 : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            Instantiate(impactEffectPrefab, transform.position + new Vector3(0.8f, 0f, 0f), Quaternion.identity);
-            Destroy(other.gameObject);
+            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+            Destroy(gameObject);
+            GameManagerSpace.Instance.LessLive();
         }
-        else
+        else if (other.gameObject.CompareTag("Projectile"))
         {
             Destroy(gameObject);
+            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+            Destroy(other.gameObject);
 
         }
-
     }
 }

@@ -30,11 +30,6 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManagerSpace.Instance.FirePlayerBullets(firePoint);
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
             Debug.Log("A");
             GameManagerSpace.Instance.FireEnemyBullets2(firePoint2);
             

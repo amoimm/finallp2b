@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManagerSpace : MonoBehaviour
@@ -8,11 +9,23 @@ public class GameManagerSpace : MonoBehaviour
     // Exemples de données de jeu
     private int playerLives = 3;
     private int score = 0;
+    [SerializeField] private GameObject targetObject; 
+    private SpriteRenderer spriteRenderer;
+
+    private int hitCount = 0;
+    private int maxHits = 6; 
+
     
     [Header("Projectile")]
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private GameObject enemyBulletPrefab;
     [SerializeField] private GameObject enemyBulletPrefab2;
+
+    private void Start()
+    {
+        spriteRenderer = targetObject.GetComponent<SpriteRenderer>();
+
+    }
 
     void Awake()
     {
@@ -33,16 +46,7 @@ public class GameManagerSpace : MonoBehaviour
         Debug.Log("Score: " + score);
     }
 
-    public void RemoveLife()
-    {
-        playerLives--;
-        Debug.Log("Vies restantes : " + playerLives);
-
-        if (playerLives <= 0)
-        {
-            GameOver();
-        }
-    }
+    
 
     private void GameOver()
     {
@@ -75,4 +79,14 @@ public class GameManagerSpace : MonoBehaviour
         if (rb != null)
             rb.linearVelocity = direction * 10f;  // vitesse fixe ou variable
     }
+    
+    
+    public void LessLive()
+    {
+        hitCount = Mathf.Min(hitCount + 1, maxHits); // Incrémente sans dépasser maxHits
+
+        float t = (float)hitCount / 16; // Valeur entre 0 (vert) et 1 (rouge)
+        spriteRenderer.color = Color.Lerp(Color.green, Color.red, t);
+    }
+
 }
