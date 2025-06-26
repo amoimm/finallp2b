@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("A");
             GameManagerSpace.Instance.FireEnemyBullets3(firePoint2);
             
         }

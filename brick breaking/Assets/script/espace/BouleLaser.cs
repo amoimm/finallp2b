@@ -12,7 +12,6 @@ public class BouleLaser : MonoBehaviour
         {
             float animTime = animator.GetCurrentAnimatorStateInfo(0).length;
             StartCoroutine(WaitAndSpawnLaser(animTime-0.01f));
-            Destroy(gameObject, animTime);
         }
         else
         {
@@ -24,5 +23,7 @@ public class BouleLaser : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Instantiate(laser, transform.position + new Vector3(-7.6f, 0f, 0f), Quaternion.identity);
+        Destroy(gameObject);
+
     }
 }

@@ -13,7 +13,7 @@ public class GameManagerSpace : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int hitCount = 0;
-    private int maxHits = 6; 
+    private int maxHits = 15; 
 
     
     [Header("Projectile")]
@@ -90,8 +90,9 @@ public class GameManagerSpace : MonoBehaviour
     
     public void LessLive()
     {
+        
         hitCount = Mathf.Min(hitCount + 1, maxHits); // Incrémente sans dépasser maxHits
-
+        Debug.Log(hitCount);
         float t = (float)hitCount / 16; // Valeur entre 0 (vert) et 1 (rouge)
         spriteRenderer.color = Color.Lerp(Color.green, Color.red, t);
     }
