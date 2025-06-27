@@ -17,7 +17,7 @@ public class laser : MonoBehaviour
 
     void Update()
     {
-        // Croissance du laser
+        // Grow the laser progressively
         if (transform.localScale.y < targetHeight)
         {
             float newY = Mathf.Min(transform.localScale.y + growSpeed * Time.deltaTime, targetHeight);
@@ -30,13 +30,13 @@ public class laser : MonoBehaviour
             }
         }
 
-        // Dégâts toutes les secondes
+        // Apply damage every second
         if (playerInside)
         {
             damageTimer += Time.deltaTime;
             if (damageTimer >= 0.5f)
             {
-                GameManagerSpace.Instance.LessLive(); // Applique 1 dégât
+                GameManagerSpace.Instance.LessLive(); // Apply 1 damage
                 damageTimer = 0f;
             }
         }
@@ -48,11 +48,7 @@ public class laser : MonoBehaviour
         {
             GameManagerSpace.Instance.LessLive();
             playerInside = true;
-            damageTimer = 0f; // Réinitialise le timer à l'entrée
-        }
-        else if (other.CompareTag("Projectile"))
-        {
-            Destroy(other.gameObject);
+            damageTimer = 0f; // Reset timer at 0
         }
     }
 

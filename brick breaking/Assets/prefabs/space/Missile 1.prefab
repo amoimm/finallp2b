@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8564889094478225120}
   - component: {fileID: 68913050589166255}
   - component: {fileID: 2382944915836616255}
-  - component: {fileID: 6378533082151703549}
+  - component: {fileID: -1445833356268326990}
   m_Layer: 0
   m_Name: Missile 1
   m_TagString: Projectile
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffectPrefab: {fileID: 8049251512282798709, guid: 42dc31d1d15d6af42a0c408508bf17c8, type: 3}
---- !u!61 &6378533082151703549
-BoxCollider2D:
+--- !u!70 &-1445833356268326990
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,15 +164,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.64, y: 0.64}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.000035408306, y: -0.0021758857}
+  m_Size: {x: 0.56536216, y: 0.26413122}
+  m_Direction: 1

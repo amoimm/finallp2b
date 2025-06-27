@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040c77e470daa2d4783a5429bcd0fa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactEffectPrefab: {fileID: 0}
   points: 100
   missilePrefab: {fileID: 3670417763300607701, guid: 77afb24dd2ffd0246ad4a31cc8aa2f13, type: 3}
   laserPrefab: {fileID: 3560286480323880561, guid: 9b454289e18459441bd24b097112d5b0, type: 3}

@@ -8,20 +8,19 @@ public class EnemyShoot1:MonoBehaviour
       {
           if (other.gameObject.CompareTag("DeadZone"))
           {
-              Destroy(gameObject);
+            Destroy(gameObject);
           }
           else if (other.gameObject.CompareTag("Player"))
           {
-              Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
-              Destroy(gameObject);
-              GameManagerSpace.Instance.LessLive();
+            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+            Destroy(gameObject);
+            GameManagerSpace.Instance.LessLive();
           }
           else if (other.gameObject.CompareTag("Projectile"))
           {
-              Destroy(gameObject);
-              Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
-              Destroy(other.gameObject);
-
+            Destroy(gameObject);
+            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+            Destroy(other.gameObject);
           }
       }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class GameManagerSpace : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class GameManagerSpace : MonoBehaviour
     [SerializeField] private GameObject targetObject; 
     private SpriteRenderer spriteRenderer;
 
-    private int hitCount = 0;
-    private int maxHits = 15; 
+    protected int hitCount = 0;
+    private int maxHits = 10;
+    [SerializeField] TextMeshPro _scoreText;
 
     
     [Header("Projectile")]
@@ -45,7 +47,7 @@ public class GameManagerSpace : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
-        Debug.Log("Score: " + score);
+        _scoreText.text = "" + score;
     }
 
     
@@ -58,8 +60,8 @@ public class GameManagerSpace : MonoBehaviour
 
     public void FirePlayerBullets(Transform firePoint)
     { 
-        SpawnBullet(playerBulletPrefab, firePoint.position + new Vector3(0, 0.3f, 0), Vector2.right);
-        SpawnBullet(playerBulletPrefab, firePoint.position + new Vector3(0, -0.3f, 0), Vector2.right);
+        SpawnBullet(playerBulletPrefab, firePoint.position + new Vector3(0, 0.3f, 0), Vector3.right);
+        SpawnBullet(playerBulletPrefab, firePoint.position + new Vector3(0, -0.3f, 0), Vector3.right);
 
     }
 
@@ -86,11 +88,11 @@ public class GameManagerSpace : MonoBehaviour
         if (rb != null)
             rb.linearVelocity = direction * 100f;  // vitesse fixe ou variable
     }
-    
-    
+
+
     public void LessLive()
     {
-        
+
         hitCount = Mathf.Min(hitCount + 1, maxHits); // Incrémente sans dépasser maxHits
         Debug.Log(hitCount);
         float t = (float)hitCount / 16; // Valeur entre 0 (vert) et 1 (rouge)

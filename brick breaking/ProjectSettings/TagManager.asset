@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Apple
   - joueur
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

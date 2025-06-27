@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Ennemy : MonoBehaviour
 {
+    [SerializeField] private GameObject impactEffectPrefab;
     public int points;
     private SpriteRenderer spriteRenderer;
     private int lives;
 
     private float stopX = 7f;
-    private float speed = 2f; // Ajuste la vitesse selon tes besoins
+    private float speed = 2f;
     private Rigidbody2D rb;
 
     // Variables to handle the enemy1 dash behavior
@@ -15,7 +16,7 @@ public class Ennemy : MonoBehaviour
     private bool isDashing = false;
     private float waitDuration = 1.0f;
     private float waitTimer = 0f;
-    private float dashSpeed = -8f;
+    private float dashSpeed = -15f;
     //Variables to handle the enemy2 shooting behavior
     [SerializeField] private GameObject missilePrefab;
     private float missileCooldown = 1f;
@@ -82,7 +83,7 @@ public class Ennemy : MonoBehaviour
                     // Fire lasers for ennemy3
                     MoveRandomlyVertical();
                     FireLaser();
-                    
+
                     break;
                 default:
                     Dash();
@@ -117,9 +118,7 @@ public class Ennemy : MonoBehaviour
         missileTimer -= Time.deltaTime;
         if (missileTimer <= 0f)
         {
-            // Randomly generate an angle for the missile
-            float angle = Random.Range(-45f, 45f);
-            Instantiate(missilePrefab, transform.position, Quaternion.Euler(0f, 0f, angle));
+            Instantiate(missilePrefab, transform.position, Quaternion.identity);
             missileTimer = missileCooldown;
         }
     }
@@ -160,7 +159,29 @@ public class Ennemy : MonoBehaviour
             // Target reached, stop moving until next laser shot
             needNewTargetY = false;
         }
-        
-        
+
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("PlayerProjectile"))
+        {
+            // Destroy the bullet and reduce the enemy's lives
+            Destroy(other.gameObject);
+            lives--;
+            if (lives == 0)
+            {
+                Destroy(gameObject);
+                Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+                GameManagerSpace.Instance.AddScore(points);
+            }
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
+            Destroy(gameObject);
+            GameManagerSpace.Instance.LessLive();
+        }
     }
 }

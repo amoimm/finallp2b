@@ -34,12 +34,5 @@ public class EnemyShoot2 : MonoBehaviour
             Destroy(gameObject);
             GameManagerSpace.Instance.LessLive();
         }
-        else if (other.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(gameObject);
-            Instantiate(impactEffectPrefab, other.transform.position , Quaternion.identity);
-            Destroy(other.gameObject);
-
-        }
     }
 }

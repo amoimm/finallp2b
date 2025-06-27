@@ -24,8 +24,8 @@ public class EnnemySpawner : MonoBehaviour
         // Decrease the time left and spawn timer
         spawnTimer -= Time.deltaTime;
 
-        float minInterval = 0.75f;
-        float maxInterval = Mathf.Max(4f-Time.time*0.025f, minInterval);
+        float minInterval = 0.5f;
+        float maxInterval = Mathf.Max(3.5f-Time.time*0.01f, minInterval);
         
         if (spawnTimer <= 0)
         {
@@ -63,7 +63,7 @@ public class EnnemySpawner : MonoBehaviour
 
         // Randomly position the ennemy within the specified range
         GameObject ennemy = Instantiate(ennemyPrefab);
-        ennemy.transform.position = new Vector3(10f, Random.Range(-4.5f, 3.2f), -2f);
+        ennemy.transform.position = new Vector3(10f, Random.Range(-4.5f, 3.2f), 0f);
         ennemy.GetComponent<Ennemy>().Setup(chosenSprite, points, lives);
     }
 }
