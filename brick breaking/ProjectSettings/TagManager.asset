@@ -10,6 +10,8 @@ TagManager:
   - Paddle
   - Enemy
   - Projectile
+  - Apple
+  - joueur
   layers:
   - Default
   - TransparentFX

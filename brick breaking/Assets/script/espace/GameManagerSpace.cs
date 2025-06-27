@@ -84,7 +84,7 @@ public class GameManagerSpace : MonoBehaviour
         GameObject bullet = Instantiate(prefab, position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
-            rb.linearVelocity = direction * 10f;  // vitesse fixe ou variable
+            rb.linearVelocity = direction * 100f;  // vitesse fixe ou variable
     }
     
     

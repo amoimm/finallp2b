@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     private float speed = 5f;
     [SerializeField] private GameObject bulletPrefab;      // Le prefab du projectile à instancier
     [SerializeField] private Transform firePoint; // Le point de départ du tir (souvent un Empty enfant du joueur)
-    [SerializeField] private Transform firePoint2;          // Le point de départ du tir (souvent un Empty enfant du joueur)
 
     private float bulletSpeed = 10f;      // Vitesse du projectile
     void Start()
@@ -30,8 +29,7 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameManagerSpace.Instance.FireEnemyBullets3(firePoint2);
-            
+            GameManagerSpace.Instance.FirePlayerBullets(firePoint);
         }
         
     }

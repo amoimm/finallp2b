@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ca92ac26400064783cb1e9112460b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactEffectPrefab: {fileID: 4204037201809468120, guid: ecc07384cbaa37c4fa0124ad037e1549, type: 3}
+  impactEffectPrefab: {fileID: 8049251512282798709, guid: 42dc31d1d15d6af42a0c408508bf17c8, type: 3}
 --- !u!50 &-79135445052819276
 Rigidbody2D:
   serializedVersion: 5
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552785952883213729}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

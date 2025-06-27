@@ -167,4 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchForce: {x: 2, y: 8}
   paddle: {fileID: 4500264457497066488, guid: 10f2a75fbbf2ffb42a51b3e783ed8ea8, type: 3}
-  baseSpeed: 6
+  rb: {fileID: 2569807579166146498}

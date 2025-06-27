@@ -4,14 +4,13 @@ public class Ball : MonoBehaviour
 {
     public Vector2 launchForce = new Vector2(2f, 8f);
     public Transform paddle;
-    private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     private bool launched = false;
     private float baseSpeed =9f;
     private float minSpeed = 9f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
         
         if (paddle == null && GameManager.Instance != null)

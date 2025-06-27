@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class laser : MonoBehaviour
 {
-    public float targetHeight = 5f;
-    public float growSpeed = 0.5f;
+    public float targetHeight = 3f;
+    public float growSpeed = 1f;
 
     private BoxCollider2D boxCollider;
     private bool playerInside = false;
@@ -12,7 +12,7 @@ public class laser : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 2.5f);
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class laser : MonoBehaviour
         if (playerInside)
         {
             damageTimer += Time.deltaTime;
-            if (damageTimer >= 0.7f)
+            if (damageTimer >= 0.5f)
             {
                 GameManagerSpace.Instance.LessLive(); // Applique 1 dégât
                 damageTimer = 0f;
