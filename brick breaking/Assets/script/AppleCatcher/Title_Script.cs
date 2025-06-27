@@ -24,14 +24,17 @@ public class Title_Script : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.Escape) )
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-        else if ( Input.anyKeyDown && !hasLeft )
+        else if (Input.anyKeyDown && !hasLeft)
         {
             hasLeft = true;
-            StartCoroutine( LoadScene_Game() );
+            StartCoroutine(LoadScene_Game());
         }
     }
 

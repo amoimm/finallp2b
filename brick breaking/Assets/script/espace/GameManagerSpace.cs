@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManagerSpace : MonoBehaviour
 {
-    // Singleton accessible depuis d'autres scripts
     public static GameManagerSpace Instance;
 
-    // Exemples de données de jeu
     private int playerLives = 3;
     private int score = 0;
     [SerializeField] private GameObject targetObject; 
@@ -44,6 +43,13 @@ public class GameManagerSpace : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Persiste entre les scènes
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        }
+    }
+
     public void AddScore(int points)
     {
         score += points;
@@ -55,7 +61,6 @@ public class GameManagerSpace : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("GAME OVER");
-        // Tu peux ici charger une scène de fin, désactiver les contrôles, etc.
     }
 
     public void FirePlayerBullets(Transform firePoint)

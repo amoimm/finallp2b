@@ -27,6 +27,9 @@ public class Timer : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        }
         if (timerIsRunning)
         {
             // If the timer is running, decrease the time remaining

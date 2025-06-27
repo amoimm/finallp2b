@@ -67,6 +67,13 @@ public class GameManager : MonoBehaviour
         SpawnBall();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainMenu");
+        }
+    }
+
     private void LoadSavedData()
     {
         niveau = PlayerPrefs.GetInt("niveau", 1);
